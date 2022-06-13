@@ -1,0 +1,13 @@
+syntax = "proto3";
+package test;
+option go_package = "my.test";
+
+message Errors {
+  enum ErrorCode {
+    Default      = 0;
+    UserNotFind  = 300001;
+    UserNotLogin = 300002;
+    InfraError   = 300003;
+  }
+}
+
