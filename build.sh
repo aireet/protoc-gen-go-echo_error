@@ -1,6 +1,6 @@
 SRC_DIR="./proto"
 DST_DIR="./proto"
-go install research/grpc/cmd/protoc-gen-go-echo_error && \
+go install github.com/aireet/protoc-gen-go-echo_error && \
 protoc            \
 -I=$SRC_DIR   $SRC_DIR"/errors.proto"     \
 --go_out=$DST_DIR \
