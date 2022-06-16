@@ -1,0 +1,7 @@
+package echoerr
+
+const (
+	template = `
+
+	`
+)

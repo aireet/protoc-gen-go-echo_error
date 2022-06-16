@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package go.micro.srv.test;
+
+option go_package = "go.micro.srv.test";
+
+
+service Test {
+  rpc GetTestInfo(GetTestInfoReq) returns (GetTestInfoResp) {};
+}
+
+message GetTestInfoReq {
+}
+
+message  GetTestInfoResp {
+}

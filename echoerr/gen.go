@@ -1,0 +1,5 @@
+package echoerr
+
+func GenError() {
+
+}
