@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package echo_errors;
+
+option go_package = "g.echo.tech/dev/grpc-proto/proto/echo_errors";
+
+message PaymentEchoError {
+
+  enum EchoErrorCode {
+    UNKNOWN = 0;
+    SOME_ERROR = 530001;
+    SOME_ERROR2 = 530002;
+    SOME_ERROR3 = 530003;
+    SOME_ERROR4 = 530004;
+  }
+
+}
+

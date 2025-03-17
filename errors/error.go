@@ -8,10 +8,8 @@ const (
 )
 
 type Exception struct {
-	Code       int64  `json:"code"`       // 错误码， 低五位是子错误码，高位是业务码
-	Message    string `json:"message"`    // 中文描述 //现在前端大部分展示的是这个错误码
-	ErrMessage string `json:"errMessage"` // 服务端内部的错误码，方便定位问题
-	MeteData   map[string]interface{}
+	Code      int64  `json:"code"`
+	ErrorName string `json:"ErrorName"`
 }
 
 func (*Exception) Error() string {
@@ -29,8 +27,6 @@ func FromError(err error) *Exception {
 
 	// todo micro error
 	return &Exception{
-		Code:       UnknownCode,
-		Message:    UnknowMessage,
-		ErrMessage: UnknowMessage,
+		Code: UnknownCode,
 	}
 }

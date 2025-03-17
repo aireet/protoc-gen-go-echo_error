@@ -11,22 +11,19 @@ type E errors.Exception
 const (
 	errTemplate = `
 
-	func New{{.ErrMessage}}Error() (err *errors.Exception) {
-		err = &errors.Exception{
-			Code:  {{.Code}},
-			Message: "{{.Message}}",
-			ErrMessage: "{{.ErrMessage}}",
-		}
+	func New{{.ErrorName}}Error(msg string) (err error) {
+		err = status.Errorf(codes.Code({{.Code}}),msg)
 		return err
 	}
 
-	func Is{{.ErrMessage}}(err error) bool {
-		if err == nil {
+	func Is{{.ErrorName}}Error(err error) bool {
+		status := status.Convert(err)
+		if status == nil {
 			return false
 		}
-		e := errors.FromError(err)
-		return e.Code == {{.Code}} && e.ErrMessage == "{{.ErrMessage}}"
+		return  status.Code() == codes.Code({{.Code}})		
 	}
+
 	`
 )
 
